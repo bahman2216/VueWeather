@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Weather Sample</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <div>
+        <p>
+            <router-link to="/">[Home]</router-link>
+            <router-link to="/search/:keyword">[Search]</router-link>
+            <router-link to="/weather/:woeid">[Weather Details Page]</router-link>
+        </p>
+        <router-view></router-view>
+    </div> <!-- /row -->
+
+    <ul>
+        <li v-for="city in weathers">
+            {{ city.title }}
+        </li>
+    </ul>
+
+    <div class="row" v-if="debug">
+        <div class="col-sm-12">
+            <h3>
+                Debug Data
+            </h3>
+            <pre>{{ $data | json }}</pre>
+        </div>
+    </div> <!-- /row -->
+</div>
+
+</body>
+
+<script>
+
+    Vue.config.devtools = true
+
+    const home = Vue.component('home', {
+        template: '{{weathers}}<div v-for="item in weathers">{{item.title}}</div>',
+        data:function() {
+            return {
+                weathers: this.getWeathers()
+            };
+
+        },
+        /*created: function() {
+            weathers = this.getWeathers();
+        },*/
+        methods: {
+            getWeathers: function () {
+                this.$http.get('weather.php?command=search&keyword=london', function (data, status, request) {
+                    if (status == 200) {
+                        this.weathers = data;
+                    }
+                });
+            }
+        }
+    });
+
+    const Search = {template: '<div>Search</div>'}
+    const WeatherDetailPage = {template: '<div>Weather Details Page</div>'}
+    const NotFound = {template: '<div>Page not found</div>'}
+
+    const routes = [
+        {path: '/', component: home},
+        {path: '/search/:keyword', component: Search},
+        {path: '/weather/:woeid', component: WeatherDetailPage}
+    ]
+
+    const router = new VueRouter({
+        routes
+    })
+    /*const routes = {
+        '/#/': Home,
+        '/#/search/:keyword': Search,
+        '/#/weather/:woeid': WeatherDetailPage
+    }*/
+    const app = new Vue({
+        router,
+        el: '#app',
+        data: {
+            currentRoute: window.location.pathname,
+            debug: true,
+            weathers: []
+        },
+        /*computed: {
+            ViewComponent() {
+                return routes[this.currentRoute] || NotFound
+            }
+        },
+        render(h) {
+            return h(this.ViewComponent)
+        },*/
+
+    }).$mount('#app');
+</script>
+</html>
