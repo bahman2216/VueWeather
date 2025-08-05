@@ -1,0 +1,4 @@
+2025-08-05 15:05:49,813 - INFO - Starting file collection from 1 source directories
+2025-08-05 15:05:49,813 - INFO - Processing source directory: /workspace/test_source
+2025-08-05 15:05:49,813 - INFO - Collection complete: 3 files collected, 0 skipped, 0 errors
+2025-08-05 15:05:49,813 - INFO - Report saved to test_report.txt

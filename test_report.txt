@@ -1,0 +1,13 @@
+File Collection Report
+==================================================
+Timestamp: 2025-08-05T15:05:49.813489
+Dry Run: True
+Files Collected: 3
+Files Skipped: 0
+Errors: 0
+
+Collected Files:
+--------------------
+✓ /workspace/test_source/index.html → /workspace/test_dest/index.html (0.00 MB)
+✓ /workspace/test_source/test.txt → /workspace/test_dest/test.txt (0.00 MB)
+✓ /workspace/test_source/data.csv → /workspace/test_dest/data.csv (0.00 MB)
