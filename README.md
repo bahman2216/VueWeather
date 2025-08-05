@@ -4,15 +4,18 @@ A comprehensive file collection and management tool that helps you collect, filt
 
 ## Features
 
+- **Multiple Interfaces**: Choose from GUI, command-line, or web interfaces
+- **Individual Destination Control**: Set specific destinations for each source file
 - **Multiple Source Support**: Collect files from multiple source directories
 - **Advanced Filtering**: Filter files by patterns, extensions, size, and exclude rules
-- **Flexible Copy Modes**: Copy, move, or create hard links
+- **Flexible Copy Modes**: Copy, move, hardlink, or symlink operations
 - **Directory Structure**: Option to preserve original directory structure
 - **Dry Run Mode**: Preview operations before executing
+- **Real-time Progress**: Visual progress tracking with detailed status
 - **Comprehensive Logging**: Detailed logs and error reporting
-- **Web Interface**: User-friendly browser-based interface
-- **CLI Command Generation**: Generate command-line commands from web interface
-- **Configuration Files**: Save and reuse filter configurations
+- **Batch Operations**: Process multiple files with different destinations
+- **Configuration Management**: Save and reuse filter configurations
+- **Cross-platform**: Works on Windows, macOS, and Linux
 
 ## Installation
 
@@ -87,6 +90,42 @@ python3 file_collector.py /source1 /source2 /source3 -d /destination
 | `-c, --config` | Configuration file path |
 | `--report` | Generate detailed report file |
 | `--create-config` | Create sample configuration file |
+
+### GUI Applications
+
+#### Launcher
+Run the GUI launcher to choose your preferred interface:
+```bash
+python3 launch_gui.py
+```
+
+#### Basic GUI
+A simple, clean interface for everyday file collection tasks:
+```bash
+python3 file_collector_gui.py
+```
+
+**Features:**
+- Individual file destination mapping
+- Drag & drop file selection
+- Real-time progress tracking
+- Basic copy/move operations
+- Context menus and shortcuts
+
+#### Extended GUI (Pro)
+Advanced interface with professional features:
+```bash
+python3 file_collector_gui_extended.py
+```
+
+**Features:**
+- Tabbed interface with advanced options
+- Filter presets and custom patterns
+- Batch operations and tools
+- Comprehensive logging and reports
+- Configuration management
+- Multi-threaded operations
+- File verification and checksums
 
 ### Web Interface
 
