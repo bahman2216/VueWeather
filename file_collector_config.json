@@ -1,0 +1,23 @@
+{
+  "default_patterns": [
+    "*.txt",
+    "*.pdf",
+    "*.docx"
+  ],
+  "default_extensions": [
+    "txt",
+    "pdf",
+    "docx",
+    "jpg",
+    "png"
+  ],
+  "default_exclude_patterns": [
+    "temp*",
+    "*.tmp",
+    "*.log"
+  ],
+  "default_destination": "./collected_files",
+  "log_level": "INFO",
+  "preserve_structure": false,
+  "copy_mode": "copy"
+}
